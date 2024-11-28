@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Header from './components/header';
+import HomePage from './pages/homepage';
+import CSRollOfHonour from './pages/cshonour';
+import TransfersPage from './pages/transfers';
+import CurrentPostingsPage from './pages/postings';
+import ServicesPage from './pages/services';
+import ContactPage from './pages/contact';
+import Footer from './components/footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="min-h-screen">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cs-roll-of-honour" element={<CSRollOfHonour />} />
+          <Route path="/transfer" element={<TransfersPage />} />
+          <Route path="/currentposting" element={<CurrentPostingsPage/>}/>
+          <Route path="/services" element={<ServicesPage/>}/>
+          <Route path="/contact" element={<ContactPage/>}/>
+          
+        </Routes>
+        <Footer/>
+
+      </div>
+    </Router>
   );
 }
 
